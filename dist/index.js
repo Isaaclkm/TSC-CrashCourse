@@ -46,3 +46,24 @@ const users = {
     id: 1,
     name: 'John'
 };
+const add = (x, y) => x + y;
+const sub = (x, y) => x - y;
+//Classes
+class Person {
+    constructor(id, name) {
+        this.id = id;
+        this.name = name;
+    }
+    register() {
+        return `${this.name}`;
+    }
+}
+const brad = new Person(1, 'Brad');
+class Employee extends Person {
+    constructor(id, name, position) {
+        super(id, name);
+        this.position = position;
+    }
+}
+const emp = new Employee(3, 'Shawn', "Developper");
+console.log(emp.register);

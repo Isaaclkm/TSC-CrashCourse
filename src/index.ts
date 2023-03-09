@@ -74,3 +74,56 @@ interface MatFunc{
     (x: number, y: number): number 
 }
 
+interface PersonInterface { 
+    id: number
+    name: string 
+    register(): string
+}
+
+const add: MatFunc = (x: number, y: number): number => x + y
+const sub: MatFunc = (x: number, y: number): number => x - y
+
+
+//Classes
+
+class Person implements Person{
+    id: number 
+    name: String
+
+    constructor(id: number, name: string){
+        this.id = id
+        this.name = name 
+    }
+
+    register( ){
+        return `${this.name}`
+    }
+}
+
+const brad = new Person(1, 'Brad')
+
+
+class Employee extends Person{ 
+    position: string
+
+
+    constructor(id: number, name: string, position: string){
+        super(id, name)
+        this.position = position
+    }
+}
+
+const emp = new Employee(3, 'Shawn', "Developper")
+
+console.log(emp.register)
+
+//Generics 
+
+function getArray<T>(items: T[]): T[] {
+    return new Array().concat(items)
+}
+
+let numArray = getArray<number>([1,2,3,4])
+let strArray = getArray<string>(['brad', 'John', 'Jill'])
+
+numArray.push('hello')
